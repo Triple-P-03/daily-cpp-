@@ -16,31 +16,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 int stocks(int *a, int n)
-{
-    int b[] = {0};
-    int j = 0;
+{//find max profit = selling price -buying {this can be done by max and min values or some values with bigger differnces}
+    if (n <= 1)
+        return 0;
+    int minp = INT_MAX, maxProfit = 0;
     for (int i = 0; i < n; i++)
     {
-        b[j] = a[i] - a[i + 1];
-        j++;
-        i++;
+        if (a[i] < minp)
+        {
+            minp = a[i];
+        }
+        else
+        {
+            maxProfit = max(maxProfit, a[i] - minp);
+        }
     }
-    int sum = 0;
-    for (int i = 0; i < j; i++)
-    {
-        sum += b[i];
-    }
-    if (sum > 0)
-    {
-        return sum;
-    }
-    else
-    return 0;
+    return maxProfit;
 }
 int main()
 {
     int arr[] = {7, 10, 1, 3, 6, 9, 2};
-    cout << stocks(arr, sizeof(arr) / sizeof(arr[0])); 
+    cout << stocks(arr, sizeof(arr) / sizeof(arr[0]));
     return 0;
     // wrongg approach and solution
 }
