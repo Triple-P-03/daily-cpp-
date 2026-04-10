@@ -43,7 +43,7 @@ int main() {
         scanf("%d", &wt[i]);
     }
 
-    printf("\n--- Input Package Profits ---\n");
+    printf("\n--- Input Package Profits from OM ---\n");
     for (int i = 0; i < n; i++) {
         printf("Profit of package %d: ", i + 1);
         scanf("%d", &val[i]);
